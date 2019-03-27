@@ -1,8 +1,1 @@
-<h1>
-  welcome to the dashboard of all the issues
-</h1>
-<ul>
-  {{#each this.model as |issue|}}
-    <li>{{issue}}</li>
-  {{/each}}
-</ul>
+<IssueList @issues={{this.model}} @title="these are the issues"/>

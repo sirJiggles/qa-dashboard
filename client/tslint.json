@@ -4,7 +4,9 @@
   "jsRules": {},
   "rules": {
     "member-access": [true, "no-public"],
-    "quotemark": [true, "single"]
+    "quotemark": [true, "single"],
+    "ordered-imports": false,
+    "only-arrow-functions": false
   },
   "rulesDirectory": []
 }
