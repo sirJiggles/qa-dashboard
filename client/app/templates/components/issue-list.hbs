@@ -1,8 +1,25 @@
-<h1 data-test-issues-title>
-  {{this.title}}
-</h1>
-<ul>
+<div class="layout-row">
+  <h1 data-test-issues-title>
+    {{this.title}}
+  </h1>
+</div>
+<div class="layout-row layout-xs-column">
   {{#each this.issues as |issue|}}
-    <li>{{issue}}</li>
+    <div class="layout-column flex-xs flex-gt-xs-50">
+      {{#paper-card as |card|}}
+        {{#card.title as |title|}}
+          {{#title.text as |text|}}
+            {{#text.headline}}
+              {{issue}}
+            {{/text.headline}}
+            {{#text.subhead}}Large{{/text.subhead}}
+          {{/title.text}}
+        {{/card.title}}
+        {{#card.actions}}
+          {{#paper-button}}Action 1{{/paper-button}}
+          {{#paper-button}}Action 2{{/paper-button}}
+        {{/card.actions}}
+      {{/paper-card}}
+    </div>
   {{/each}}
-</ul>
+</div>
