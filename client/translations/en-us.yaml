@@ -3,3 +3,5 @@ side_bar:
   users: Users
   settings: Settings
   dashboard: Dashboard
+issue_list:
+  sample: SAMPLE

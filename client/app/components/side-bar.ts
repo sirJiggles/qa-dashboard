@@ -1,10 +1,6 @@
-import Component from '@ember/component';
-import { tagName } from '@ember-decorators/component';
+import Component from '@glimmer/component';
 
-@tagName('')
-export default class SideBar extends Component.extend({
-  // anything which *must* be merged to prototype here
-}) {
+export default class SideBar extends Component {
   args: {
     sideBarOpen: boolean;
   } = this.args;

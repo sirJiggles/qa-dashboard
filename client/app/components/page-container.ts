@@ -1,8 +1,8 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
-export default class PageContainer extends Component.extend({
-  // anything which *must* be merged to prototype here
-}) {
+export default class PageContainer extends Component {
   // by default the side bar is open
   sideBarOpen = true;
+  // @TODO locale trans
+  pageTitle = 'Qa Dashboard';
 }

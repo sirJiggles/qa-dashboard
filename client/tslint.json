@@ -6,7 +6,8 @@
     "member-access": [true, "no-public"],
     "quotemark": [true, "single"],
     "ordered-imports": false,
-    "only-arrow-functions": false
+    "only-arrow-functions": false,
+    "interface-name": false
   },
   "rulesDirectory": []
 }

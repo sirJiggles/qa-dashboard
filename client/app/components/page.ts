@@ -1,5 +1,5 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
-export default class Page extends Component.extend({
+export default class Page extends Component {
   // anything which *must* be merged to prototype here
-}) {}
+}
