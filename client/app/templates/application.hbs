@@ -1,1 +1,9 @@
-{{outlet}}
+{{#paper-sidenav-container class="inner-sidenav"}}
+  <SideBar @open={{sideBarOpen}} />
+
+  {{#paper-card-content class="flex"}}
+    <div class="layout-fill layout-align-start-center layout-column">
+      {{outlet}}
+    </div>
+  {{/paper-card-content}}
+{{/paper-sidenav-container}}

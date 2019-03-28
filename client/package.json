@@ -19,7 +19,7 @@
     "test": "ember test"
   },
   "devDependencies": {
-    "@ember-decorators/babel-transforms": "^2.1.2",
+    "@ember-decorators/babel-transforms": "^3.1.0",
     "@ember/optional-features": "^0.7.0",
     "@glimmer/component": "^0.14.0-alpha.3",
     "@types/ember": "^3.1.0",
@@ -30,7 +30,7 @@
     "@types/ember__test-helpers": "^0.7.8",
     "@types/qunit": "^2.5.4",
     "@types/rsvp": "^4.0.2",
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "^8.0.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.2.20",
     "ember-cli": "github:ember-cli/ember-cli#c7b2508051253a9828f37d61942a3d62b2989df2",
@@ -48,6 +48,7 @@
     "ember-cli-typescript-blueprints": "^2.0.0",
     "ember-cli-uglify": "^2.1.0",
     "ember-data": "github:emberjs/data#b2a157b6500ea1cbf256ae2295096f9900773cd3",
+    "ember-decorators": "^5.1.4",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
