@@ -4,4 +4,4 @@ export default class Header extends Component.extend({
   // anything which *must* be merged to prototype here
 }) {
   // normal class body definition here
-};
+}

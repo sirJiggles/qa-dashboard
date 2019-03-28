@@ -2,9 +2,12 @@
   <SideBar @sideBarOpen={{this.sideBarOpen}} />
 
   {{#paper-card-content class="flex layout-fill"}}
-    <Header @toggleSideBar={{toggle-action "sideBarOpen" this}}/>
+    <Header
+      @toggleSideBar={{toggle-action "sideBarOpen" this}}
+      @title={{this.pageTitle}}
+    />
     <div class="layout-fill layout-align-start-center layout-column">
-      {{liquid-outlet}}
+      {{liquid-outlet setTitle=(action (mut "pageTitle" this))}}
     </div>
   {{/paper-card-content}}
 {{/paper-sidenav-container}}
