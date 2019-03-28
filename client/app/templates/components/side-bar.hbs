@@ -3,12 +3,29 @@
   name="left"
   open=this.sideBarOpen
 }}
-  {{#paper-toolbar as |toolbar|}}
-    {{#paper-toolbar-tools}}
-      {{t "side_bar.title"}}
-    {{/paper-toolbar-tools}}
+  {{#paper-toolbar}}
+    <div class="logo layout-column layout-align-center-center">
+      {{svg-jar "logo" width="50px" height="50px"}}
+      <div>
+        {{t "side_bar.title"}}
+      </div>
+    </div>
   {{/paper-toolbar}}
-  {{#paper-content padding=true}}
-    An Item
+  {{#paper-content}}
+    {{#paper-list}}
+      {{#each (array "dashboard" "users" "settings") as |navItem|}}
+        <LinkTo @route={{navItem}}>
+          {{#paper-button}}
+            {{#paper-item}}
+              {{svg-jar navItem class="md-avatar"}}
+              <div class="md-list-item-text">
+                {{t (concat "side_bar." navItem)}}
+              </div>
+            {{/paper-item}}
+          {{/paper-button}}
+        </LinkTo>
+        {{paper-divider inset=true}}
+      {{/each}}
+    {{/paper-list}}
   {{/paper-content}}
 {{/paper-sidenav}}

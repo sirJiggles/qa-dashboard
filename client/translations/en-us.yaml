@@ -1,2 +1,5 @@
 side_bar:
-  title: 'QA Dashboard'
+  title: QA Dashboard
+  users: Users
+  settings: Settings
+  dashboard: Dashboard
