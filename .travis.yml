@@ -23,6 +23,5 @@ before_install:
 
 script:
   - cd client
-  - npm run lint:hbs
-  - npm run lint:js
+  - npm install
   - npm test
