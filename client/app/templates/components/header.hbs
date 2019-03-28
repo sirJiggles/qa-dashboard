@@ -1,1 +1,10 @@
-{{yield}}
+{{#paper-toolbar}}
+  {{#paper-toolbar-tools}}
+    {{#paper-button iconButton=true onClick=this.toggleSideBar}}
+      {{paper-icon "menu"}}
+    {{/paper-button}}
+    <h2>
+      {{this.title}}
+    </h2>
+  {{/paper-toolbar-tools}}
+{{/paper-toolbar}}
