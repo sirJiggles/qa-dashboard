@@ -3,7 +3,11 @@ import { inject as service } from '@ember/service';
 import EventManager from 'client/services/event-manager';
 import { set } from '@ember/object';
 
-export default class Header extends Component {
+export default class HeaderComponent extends Component {
+  args: {
+    toggleSideBar: () => void;
+  } = this.args;
+
   @service
   eventManager!: EventManager;
 
@@ -19,6 +23,7 @@ export default class Header extends Component {
   }
 
   updateTitle(title: string) {
+    console.log('the update title was called!');
     set(this, 'title', title);
   }
 }

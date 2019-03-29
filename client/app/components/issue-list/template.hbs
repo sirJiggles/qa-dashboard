@@ -1,10 +1,10 @@
 <div class="layout-row">
   <h1 data-test-issues-title>
-    {{this.title}}
+    welcome to the dashboard
   </h1>
 </div>
 <div class="layout-row layout-xs-column">
-  {{#each this.issues as |issue|}}
+  {{#each this.args.issues as |issue|}}
     <div class="layout-column flex-xs flex-gt-xs-50">
       {{#paper-card as |card|}}
         {{#card.title as |title|}}

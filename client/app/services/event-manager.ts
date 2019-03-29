@@ -8,8 +8,8 @@ export default class EventManager extends Service.extend(Evented) {
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your services.
-// declare module '@ember/service' {
-//   interface Registry {
-//     'event-manager': EventManager;
-//   }
-// }
+declare module '@ember/service' {
+  interface Registry {
+    'event-manager': EventManager;
+  }
+}

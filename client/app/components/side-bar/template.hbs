@@ -1,31 +1,33 @@
-{{#paper-sidenav
+<PaperSidenav
   class="md-whiteframe-z2"
-  name="left"
-  lockedOpen=this.sideBarOpen
-}}
-  {{#paper-toolbar}}
+  @name="left"
+  @lockedOpen={{this.args.sideBarOpen}}
+>
+  <PaperToolbar>
     <div class="logo layout-column layout-align-center-center">
       {{svg-jar "logo" width="50px" height="50px"}}
       <div>
         {{t "side_bar.title"}}
       </div>
     </div>
-  {{/paper-toolbar}}
-  {{#paper-content}}
-    {{#paper-list}}
+  </PaperToolbar>
+  <PaperContent>
+    <PaperList>
       {{#each (array "dashboard" "users" "settings") as |navItem|}}
+        {{!-- can also use ember link by jan --}}
+        {{!-- template only component use for this guy --}}
         <LinkTo @route={{navItem}}>
-          {{#paper-button}}
-            {{#paper-item}}
+          <PaperButton>
+            <PaperItem>
               {{svg-jar navItem class="md-avatar"}}
               <div class="md-list-item-text">
                 {{t (concat "side_bar." navItem)}}
               </div>
-            {{/paper-item}}
-          {{/paper-button}}
+            </PaperItem>
+          </PaperButton>
         </LinkTo>
-        {{paper-divider inset=true}}
+        <PaperDivider @inset=true />
       {{/each}}
-    {{/paper-list}}
-  {{/paper-content}}
-{{/paper-sidenav}}
+    </PaperList>
+  </PaperContent>
+</PaperSidenav>
