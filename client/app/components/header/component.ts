@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import EventManager from 'client/services/event-manager';
-import { set } from '@ember/object';
 import IntlService from 'ember-intl/services/intl';
 
 export default class HeaderComponent extends Component {
@@ -15,23 +15,19 @@ export default class HeaderComponent extends Component {
   @service
   intl!: IntlService;
 
-  title: string;
+  @tracked
+  title: string = this.intl.t('title');
 
   constructor() {
     super(...arguments);
-    this.title = this.intl.t('title');
-  }
-
-  didInsertElement() {
-    this.eventManager.on('updatedTitle', this.updateTitle);
+    this.eventManager.on('updatedTitle', this.updateTitle.bind(this));
   }
 
   willDestroy() {
-    this.eventManager.off('updatedTitle', this.updateTitle);
+    this.eventManager.off('updatedTitle', this.updateTitle.bind(this));
   }
 
   updateTitle(title: string) {
-    console.log('the update title was called!');
-    set(this, 'title', title);
+    this.title = title;
   }
 }
