@@ -1,10 +1,12 @@
 import Route from '@ember/routing/route';
+import titleSetter from 'client/decorators/title-setter';
 import { inject as service } from '@ember/service';
 import EventManager from 'client/services/event-manager';
 import { action } from '@ember/object';
 import IntlService from 'ember-intl/services/intl';
 
-export default class DashboardRoute extends Route {
+@titleSetter('dashboard')
+class DashboardRoute extends Route {
   @service
   eventManager!: EventManager;
 
@@ -14,9 +16,6 @@ export default class DashboardRoute extends Route {
   model() {
     return ['issue one', 'issue two', 'issue three'];
   }
-
-  @action
-  didTransition() {
-    this.eventManager.updateTitle(this.intl.t('side_bar.dashboard'));
-  }
 }
+
+export default DashboardRoute;
