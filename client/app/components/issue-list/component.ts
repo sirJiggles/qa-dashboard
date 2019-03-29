@@ -24,6 +24,7 @@ export default class IssueList extends Component {
 
   willDestroy() {
     // super.willDestroy();
+    this.eventManager.updateTitle('Dashboard');
     console.error('will destroy');
   }
 }

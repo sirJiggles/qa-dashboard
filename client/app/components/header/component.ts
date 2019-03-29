@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import EventManager from 'client/services/event-manager';
 import { set } from '@ember/object';
+import IntlService from 'ember-intl/services/intl';
 
 export default class HeaderComponent extends Component {
   args: {
@@ -11,15 +12,22 @@ export default class HeaderComponent extends Component {
   @service
   eventManager!: EventManager;
 
-  title = '';
+  @service
+  intl!: IntlService;
 
-  didReceiveAttrs() {
-    this.eventManager.on('updateTitle', this.updateTitle);
+  title: string;
+
+  constructor() {
+    super(...arguments);
+    this.title = this.intl.t('title');
+  }
+
+  didInsertElement() {
+    this.eventManager.on('updatedTitle', this.updateTitle);
   }
 
   willDestroy() {
-    super.willDestroy();
-    this.eventManager.off('updateTitle', this.updateTitle);
+    this.eventManager.off('updatedTitle', this.updateTitle);
   }
 
   updateTitle(title: string) {

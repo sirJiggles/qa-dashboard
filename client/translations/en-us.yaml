@@ -3,5 +3,6 @@ side_bar:
   users: Users
   settings: Settings
   dashboard: Dashboard
+title: QA Dashboard
 issue_list:
   sample: SAMPLE

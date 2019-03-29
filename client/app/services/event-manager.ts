@@ -3,7 +3,7 @@ import Evented from '@ember/object/evented';
 
 export default class EventManager extends Service.extend(Evented) {
   updateTitle(title: string) {
-    this.trigger('updateTitle', title);
+    this.trigger('updatedTitle', title);
   }
 }
 
