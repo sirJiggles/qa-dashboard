@@ -4,8 +4,11 @@
   @lockedOpen={{this.args.sideBarOpen}}
 >
   <PaperToolbar>
-    <div class="logo layout-column layout-align-center-center">
-      {{svg-jar "logo" width="50px" height="50px"}}
+    <div
+      local-class="logo"
+      class="layout-column layout-align-center-center"
+    >
+      {{svg-jar local-class="logo-icon" width="50px" height="50px"}}
       <div>
         {{t "side_bar.title"}}
       </div>
@@ -26,7 +29,7 @@
             </PaperItem>
           </PaperButton>
         </LinkTo>
-        <PaperDivider @inset=true />
+        <PaperDivider @inset={{true}} />
       {{/each}}
     </PaperList>
   </PaperContent>
