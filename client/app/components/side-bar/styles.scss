@@ -1,7 +1,27 @@
-.logo {
-  padding: 0 30px;
+.toolbar {
+  min-height: 257px;
+}
 
-  &-icon {
-    display: block;
-  }
+.logo {
+  padding: 50px 0;
+}
+
+.logo__title {
+  margin: 10px 0 0 0;
+}
+
+.logo__icon {
+  display: block;
+  width: 120px;
+  height: 100px;
+  min-height: 100px;
+}
+
+.link {
+  width: 100%;
+  display: block;
+}
+
+.link__button {
+  width: 100%;
 }

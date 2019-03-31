@@ -3,15 +3,15 @@
   @name="left"
   @lockedOpen={{this.args.sideBarOpen}}
 >
-  <PaperToolbar>
+  <PaperToolbar local-class="toolbar">
     <div
       local-class="logo"
       class="layout-column layout-align-center-center"
     >
-      {{svg-jar local-class="logo-icon" width="50px" height="50px"}}
-      <div>
+      {{svg-jar "logo" local-class="logo__icon"}}
+      <h1 local-class="logo__title">
         {{t "side_bar.title"}}
-      </div>
+      </h1>
     </div>
   </PaperToolbar>
   <PaperContent>
@@ -19,8 +19,8 @@
       {{#each (array "dashboard" "users" "settings") as |navItem|}}
         {{!-- can also use ember link by jan --}}
         {{!-- template only component use for this guy --}}
-        <LinkTo @route={{navItem}}>
-          <PaperButton>
+        <LinkTo @route={{navItem}} local-class="link">
+          <PaperButton local-class="link__button">
             <PaperItem>
               {{svg-jar navItem class="md-avatar"}}
               <div class="md-list-item-text">
