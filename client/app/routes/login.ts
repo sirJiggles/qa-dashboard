@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import titleSetter from 'client/mixins/title-setter';
-import { task } from 'ember-concurrency';
+import { task, timeout } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
 
 export default class Login extends Route.extend(titleSetter, {

@@ -1,14 +1,13 @@
 import Component from '@glimmer/component';
 import { computed } from '@ember/object';
 import { task } from 'ember-concurrency';
-import session from 'ember-simple-auth-token';
 
 export default class LoginForm extends Component {
   args: {
     login: task;
   } = this.args;
 
-  session!: // component state
+  // component state
   username = '';
   password = '';
 
