@@ -18,4 +18,11 @@ users:
 settings:
   title: WIP
 login:
+  submit: Login
+  user_name:
+    error: User name not found
+    placeholder: Username
+  password:
+    error: Password incorrect
+    placeholder: Password
   title: WIP
