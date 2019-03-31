@@ -10,5 +10,5 @@ export default Mixin.create({
       return;
     }
     this.eventManager.updateTitle(this.intl.t(`pages.${this.title}`));
-  }
+  },
 });

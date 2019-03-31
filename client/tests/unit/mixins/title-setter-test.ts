@@ -4,9 +4,9 @@ import { module, test } from 'qunit';
 
 module('Unit | Mixin | title-setter', function() {
   // Replace this with your real tests.
-  test('it works', function (assert) {
-    let TitleSetterObject = EmberObject.extend(TitleSetterMixin);
-    let subject = TitleSetterObject.create();
+  test('it works', function(assert) {
+    const TitleSetterObject = EmberObject.extend(TitleSetterMixin);
+    const subject = TitleSetterObject.create();
     assert.ok(subject);
   });
 });
