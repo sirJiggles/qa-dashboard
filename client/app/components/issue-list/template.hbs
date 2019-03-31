@@ -1,31 +1,31 @@
 <div class="layout-row">
   <h1 data-test-issues-title>
-    welcome to the dashboard
+    {{t 'issue_list.title'}}
   </h1>
 </div>
 <div class="layout-row layout-xs-column">
   {{#each this.args.issues as |issue|}}
     <div class="layout-column flex-xs flex-gt-xs-50">
-      {{#paper-card as |card|}}
-        {{#card.title as |title|}}
-          {{#title.text as |text|}}
-            {{#text.headline}}
+      <PaperCard as |Card|>
+        <Card.title as |Title|>
+          <Title.text as |Text|>
+            <Text.headline>
               {{issue}}
-            {{/text.headline}}
-            {{#text.subhead}}
+            </Text.headline>
+            <Text.subhead>
               {{t "issue_list.sample"}}
-            {{/text.subhead}}
-          {{/title.text}}
-        {{/card.title}}
-        {{#card.actions}}
-          {{#paper-button}}
+            </Text.subhead>
+          </Title.text>
+        </Card.title>
+        <Card.actions>
+          <PaperButton>
             {{t "issue_list.sample"}}
-          {{/paper-button}}
-          {{#paper-button}}
+          </PaperButton>
+          <PaperButton>
             {{t "issue_list.sample"}}
-          {{/paper-button}}
-        {{/card.actions}}
-      {{/paper-card}}
+          </PaperButton>
+        </Card.actions>
+      </PaperCard>
     </div>
   {{/each}}
 </div>

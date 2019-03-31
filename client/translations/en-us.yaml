@@ -11,4 +11,11 @@ side_bar:
   settings: Settings
   dashboard: Dashboard
 issue_list:
+  title: WIP
   sample: SAMPLE
+users:
+  title: WIP
+settings:
+  title: WIP
+login:
+  title: WIP
