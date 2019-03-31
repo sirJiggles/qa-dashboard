@@ -1,21 +1,10 @@
 import Route from '@ember/routing/route';
-import titleSetter from 'client/decorators/title-setter';
-import { inject as service } from '@ember/service';
-import EventManager from 'client/services/event-manager';
-import { action } from '@ember/object';
-import IntlService from 'ember-intl/services/intl';
+import titleSetter from 'client/mixins/title-setter';
 
-@titleSetter('dashboard')
-class DashboardRoute extends Route {
-  @service
-  eventManager!: EventManager;
-
-  @service
-  intl!: IntlService;
+export default class DashboardRoute extends Route.extend(titleSetter) {
+  title = 'dashboard';
 
   model() {
     return ['issue one', 'issue two', 'issue three'];
   }
 }
-
-export default DashboardRoute;

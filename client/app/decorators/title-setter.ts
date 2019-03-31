@@ -1,25 +1,12 @@
-import Route from '@ember/routing/route';
-import { getOwner } from '@ember/application';
-
 export default function titleSetter(title: string) {
-  return function(route: Route) {
-    console.log(route);
-    const eventManager = getOwner(route).lookup('service:event-manager');
-    const intl = getOwner(route).lookup('service:intl');
+  return function(route: () => void) {
+    // debugger;
+    const proto = route.prototype;
 
-    route.didTransition = function() {
-      // route.didTransition.apply(arguments);
-      console.error('we are in here baby');
-
-      eventManager.updateTitle(intl.t(`side_bar.${title}`));
+    const oldDidTransition = proto.actions.didTransition;
+    proto.actions.didTransition = function() {
+      proto.eventManager.updateTitle(proto.intl.t(`side_bar.${title}`));
+      oldDidTransition();
     };
-
-    // @action
-    // didTransition() {
-    //   // call the did transition from the user of this decorator
-    //   constructor.prototype.didTransition.apply(this, arguments);
-
-    //   this.eventManager.updateTitle(this.intl.t(`side_bar.${title}`));
-    // }
   };
 }
