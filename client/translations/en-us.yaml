@@ -1,4 +1,6 @@
 title: QA Dashboard
+header:
+  logout: Logout
 pages:
   users: Users
   settings: Settings

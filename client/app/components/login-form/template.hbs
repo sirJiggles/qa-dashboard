@@ -1,6 +1,6 @@
 <PaperForm
   class="layout layout-column layout-align-center-center layout-fill"
-  @onSubmit={{perform this.args.login}} as |Form|
+  @onSubmit={{perform @login}} as |Form|
 >
   <Form.input
     @type="text"
@@ -19,7 +19,7 @@
   <Form.submit-button
     @raised={{true}}
     @primary={{true}}
-    @disabled={{if (or this.invalid this.args.login.running) true}}
+    @disabled={{if (or this.invalid @login.running) true}}
   >
     {{t "login.submit"}}
   </Form.submit-button>

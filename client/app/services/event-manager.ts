@@ -2,8 +2,23 @@ import Service from '@ember/service';
 import Evented from '@ember/object/evented';
 
 export default class EventManager extends Service.extend(Evented) {
+  title = '';
+  loggedIn = false;
+
   updateTitle(title: string) {
+    // store the state in here for the 'current title'
+    this.title = title;
     this.trigger('updatedTitle', title);
+  }
+
+  didLogin() {
+    this.loggedIn = true;
+    this.trigger('didLogin');
+  }
+
+  didLogout() {
+    this.loggedIn = false;
+    this.trigger('didLogout');
   }
 }
 
