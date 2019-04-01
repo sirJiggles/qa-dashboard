@@ -1,4 +1,22 @@
+
 title: QA Dashboard
+errors: {
+  register: {
+    could_not_create: 'Could not create the user server error!',
+    name_taken: 'Username is taken, please try again',
+    need_deets: 'Need a username and password to register',
+  },
+  protected: {
+    no_token: Your session has expired please login again,
+    invalid_token: Token invalid please try again,
+    user_mis_match: 'User in token did not match, please login again'
+  },
+  login: {
+    incorrect: password or username are incorrect,
+    not_found: 'Could not find the use, please try again',
+    fields_needed: Username and Password required to login to the system
+  }
+}
 header:
   logout: Logout
 pages:

@@ -1,6 +1,8 @@
 import Component from '@glimmer/component';
 import { computed, action } from '@ember/object';
 import { task } from 'ember-concurrency';
+import IntlService from 'ember-intl/services/intl';
+import { inject as service } from '@ember/service';
 
 export default class LoginForm extends Component {
   args: {
@@ -10,6 +12,10 @@ export default class LoginForm extends Component {
   // component state
   username = '';
   password = '';
+  error = false;
+
+  @service
+  intl!: IntlService;
 
   // tracked seemed to not work here :/
   @computed('username', 'password')
@@ -18,7 +24,7 @@ export default class LoginForm extends Component {
   }
 
   @computed('username', 'password')
-  get creds(): any {
+  get credentials(): any {
     return {
       password: this.password,
       username: this.username
@@ -26,8 +32,13 @@ export default class LoginForm extends Component {
   }
 
   @action
-  dummy(e: Event) {
-    e.preventDefault();
-    console.error(e);
+  async submit() {
+    const response = await this.args.register.perform(this.credentials);
+    if (response.error) {
+      this.error = this.intl.t(response.error);
+    } else {
+      // was ok
+      this.error = false;
+    }
   }
 }

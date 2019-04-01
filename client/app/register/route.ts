@@ -3,13 +3,11 @@ import titleSetter from 'client/mixins/title-setter';
 import { task } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
 import ApiService from 'client/services/api';
+import UserCredentials from 'client/interfaces/user-credentials';
 
 export default class RegisterRoute extends Route.extend(titleSetter, {
-  register: task(function*(credentials: FormData) {
-    console.error('got the creds', credentials);
-
-    // const resp = yield this.api.register(credentials);
-    // console.error(resp);
+  register: task(function*(credentials: UserCredentials) {
+    return yield this.api.register(credentials);
   })
 }) {
   title = 'register';
