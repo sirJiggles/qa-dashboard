@@ -7,6 +7,7 @@ pages:
   dashboard: Dashboard
   login: Login
   logout: Logout
+  register: Register
 side_bar:
   title: QA Dashboard
   users: Users
@@ -28,3 +29,12 @@ login:
     error: Password incorrect
     placeholder: Password
   title: WIP
+register:
+  submit: Register
+  user_name:
+    error: User name invalid
+    placeholder: Username
+  password:
+    error: Password invalid
+    placeholder: Password
+  title: Register a new user

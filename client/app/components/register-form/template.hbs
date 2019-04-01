@@ -1,0 +1,28 @@
+<PaperForm
+  class="layout layout-column layout-align-center-center layout-fill"
+  {{!-- @onSubmit={{perform @register value=target.}} as |Form| --}}
+  @onSubmit={{this.dummy value=target}} as |Form|
+>
+  <Form.input
+    @type="text"
+    @placeholder={{t "register.user_name.placeholder"}}
+    @onChange={{action (mut this.username)}}
+    @required="true"
+    @value={{this.username}}
+  />
+  <Form.input
+    @type="password"
+    @placeholder={{t "register.password.placeholder"}}
+    @onChange={{action (mut this.password)}}
+    @required="true"
+    @value={{this.password}}
+  />
+  <Form.submit-button
+    @raised={{true}}
+    @primary={{true}}
+    @disabled={{if (or this.invalid @register.running) true}}
+  >
+    {{t "register.submit"}}
+  </Form.submit-button>
+</PaperForm>
+

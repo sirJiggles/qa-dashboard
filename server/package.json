@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "the server of the qa dashboard",
+  "description": "the server of the qa dashboard, initial setup taken from FEM course on API design",
   "main": "index.js",
   "repository": "https://github.com/sirJiggles/qa-dashboard",
   "author": "Gareth Fuller",
