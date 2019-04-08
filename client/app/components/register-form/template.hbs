@@ -10,7 +10,7 @@
     <Card.content>
       <PaperForm
         class="layout-column"
-        @onSubmit={{this.submit}}
+        @onSubmit={{perform @register this.credentials}}
         @preventDefault={{true}} as |Form|
       >
         <Form.input

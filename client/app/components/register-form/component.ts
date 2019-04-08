@@ -27,7 +27,10 @@ export default class LoginForm extends Component {
 
   @action
   async submit() {
-    const res = await this.args.register.perform(this.credentials);
-    console.error(res);
+    try {
+      await this.args.register.perform(this.credentials);
+    } catch (err) {
+      throw err;
+    }
   }
 }
