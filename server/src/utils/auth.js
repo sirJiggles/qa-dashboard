@@ -35,39 +35,55 @@ export const signup = async (req, res) => {
     if (!userDoc) {
       return res
         .status(500)
-        .send({ error: 'errors.register.could_not_create' });
+        .send({ error: 'errors.register.could_not_create' })
+        .end();
     }
   } catch (err) {
-    res.status(500).send({
-      error: 'errors.register.name_taken'
-    });
+    return res
+      .status(500)
+      .send({
+        error: 'errors.register.name_taken'
+      })
+      .end();
   }
 
   const token = await newToken(userDoc);
-  token.delete('password');
-  return res.status(201).send({ token });
+  delete token.password;
+  return res
+    .status(201)
+    .send({ token })
+    .end();
 };
 
 export const signin = async (req, res) => {
   // check if the creds are valid
   const { username, password } = req.body;
   if (!username || !password) {
-    return res.status(400).send({
-      error: 'errors.login.fields_needed'
-    });
+    return res
+      .status(400)
+      .send({
+        error: 'errors.login.fields_needed'
+      })
+      .end();
   }
 
   const userDoc = await User.findOne({ username }).exec();
   if (!userDoc) {
-    return res.status(401).send({ error: 'errors.login.not_found' });
+    return res
+      .status(401)
+      .send({ error: 'errors.login.not_found' })
+      .end();
   }
   const pwChecksOut = await userDoc.checkPassword(password);
   if (!pwChecksOut) {
-    return res.status(401).send({ error: 'errors.login.incorrect' });
+    return res
+      .status(401)
+      .send({ error: 'errors.login.incorrect' })
+      .end();
   }
   // if they are ok return jwt
   const token = await newToken(userDoc);
-  token.delete('password');
+  delete token.password;
   return res.status(201).send({ token });
 };
 

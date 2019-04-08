@@ -27,6 +27,13 @@
           @required="true"
           @value={{this.password}}
         />
+
+        {{#if @register.last.isError}}
+          <div local-class="error">
+            {{t @register.last.error.error}}
+          </div>
+        {{/if}}
+
         <Form.submit-button
           @raised={{true}}
           @primary={{true}}
@@ -34,12 +41,6 @@
         >
           {{t "register.submit"}}
         </Form.submit-button>
-
-        {{#if error}}
-          <div local-class="error">
-            {{error}}
-          </div>
-        {{/if}}
 
       </PaperForm>
     </Card.content>
