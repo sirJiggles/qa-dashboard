@@ -3,20 +3,23 @@ import UserCredentials from 'client/interfaces/user-credentials';
 
 export default class ApiService extends Service.extend() {
   endPoint = 'http://localhost:3000';
-  headers = {
-    'Content-Type': 'application/json'
+
+  defaultOptions = {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'GET'
   };
 
   // This can all be cleaned up later to add more complication for now it ok to duplicate
   async register(userData: UserCredentials) {
     try {
-      const response = await fetch(`${this.endPoint}/signup`, {
-        body: this.wrapBody(userData),
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        method: 'POST'
-      });
+      const options = {
+        ...this.defaultOptions,
+        method: 'POST',
+        user: JSON.stringify(userData)
+      };
+      const response = await fetch(`${this.endPoint}/signup`, options);
       return await this.returnBody(response);
     } catch (err) {
       throw err;
@@ -25,12 +28,13 @@ export default class ApiService extends Service.extend() {
 
   async login(userData: UserCredentials) {
     try {
-      const resp = await fetch(`${this.endPoint}/signin`, {
-        body: JSON.stringify(userData),
-        headers: this.headers,
-        method: 'POST'
-      });
-      return resp;
+      const options = {
+        ...this.defaultOptions,
+        method: 'POST',
+        user: JSON.stringify(userData)
+      };
+      const response = await fetch(`${this.endPoint}/signin`, options);
+      return await this.returnBody(response);
     } catch (err) {
       throw err;
     }
@@ -38,15 +42,11 @@ export default class ApiService extends Service.extend() {
 
   async testAccess() {
     try {
-      const resp = await fetch(`${this.endPoint}/test`);
-      return resp;
+      const response = await fetch(`${this.endPoint}/test`);
+      return await this.returnBody(response);
     } catch (err) {
       throw err;
     }
-  }
-
-  private wrapBody(obj: any): string {
-    return JSON.stringify(obj);
   }
 
   // Used to format the body a little so we can throw nice errors
