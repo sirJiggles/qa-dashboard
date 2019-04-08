@@ -1,27 +1,48 @@
-<PaperForm
-  class="layout layout-column layout-align-center-center layout-fill"
-  @onSubmit={{perform @login}} as |Form|
->
-  <Form.input
-    @type="text"
-    @placeholder={{t "login.user_name.placeholder"}}
-    @onChange={{action (mut this.username)}}
-    @required="true"
-    @value={{this.username}}
-  />
-  <Form.input
-    @type="password"
-    @placeholder={{t "login.password.placeholder"}}
-    @onChange={{action (mut this.password)}}
-    @required="true"
-    @value={{this.password}}
-  />
-  <Form.submit-button
-    @raised={{true}}
-    @primary={{true}}
-    @disabled={{if (or this.invalid @login.running) true}}
+<div class="layout layout-row layout-align-center-center layout-fill">
+  <PaperCard
+    class="layout layout-column flex-70" as |Card|
   >
-    {{t "login.submit"}}
-  </Form.submit-button>
-</PaperForm>
+    <Card.title>
+      <h2>
+        {{t "pages.login"}}
+      </h2>
+    </Card.title>
+    <Card.content>
+      <PaperForm
+        class="layout-column"
+        @onSubmit={{perform @login this.credentials}}
+        @preventDefault={{true}} as |Form|
+      >
+        <Form.input
+          @type="text"
+          @placeholder={{t "login.user_name.placeholder"}}
+          @onChange={{action (mut this.username)}}
+          @required="true"
+          @value={{this.username}}
+        />
+        <Form.input
+          @type="password"
+          @placeholder={{t "login.password.placeholder"}}
+          @onChange={{action (mut this.password)}}
+          @required="true"
+          @value={{this.password}}
+        />
+
+        {{!-- If we should show an error message and the task to attach to it --}}
+        <ErrorMessage @task={{@login}} />
+
+        <Form.submit-button
+          @raised={{true}}
+          @primary={{true}}
+          @disabled={{if (or this.invalid @login.running) true}}
+        >
+          {{t "login.submit"}}
+        </Form.submit-button>
+
+      </PaperForm>
+    </Card.content>
+  </PaperCard>
+</div>
+
+
 

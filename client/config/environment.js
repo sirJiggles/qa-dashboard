@@ -28,8 +28,15 @@ module.exports = function(environment) {
   };
 
   ENV['ember-simple-auth-token'] = {
-    refreshAccessTokens: true,
-    refreshLeeway: 300 // refresh 5 minutes (300 seconds) before expiration
+    serverTokenEndpoint: 'http://localhost:3000/signin', // Server endpoint to send authenticate request
+    tokenPropertyName: 'token', // Key in server response that contains the access token
+    // tokenDataPropertyName: 'tokenData', // Key in session to store token data
+    // refreshAccessTokens: true, // Enables access token refreshing
+    // tokenExpirationInvalidateSession: true, // Enables session invalidation on token expiration
+    // serverTokenRefreshEndpoint: 'localhost:3000/signin', // Server endpoint to send refresh request
+    // refreshTokenPropertyName: 'token', // Key in server response that contains the refresh token
+    // tokenExpireName: 'exp', // Field containing token expiration
+    refreshLeeway: 0 // Amount of time to send refresh request before token expiration
   };
 
   if (environment === 'development') {

@@ -14,7 +14,14 @@ export default class LoginForm extends Component {
   // tracked seemed to not work here :/
   @computed('username', 'password')
   get invalid(): boolean {
-    return false;
-    // return this.username === '' || this.password === '';
+    return this.username === '' || this.password === '';
+  }
+
+  @computed('username', 'password')
+  get credentials(): any {
+    return {
+      password: this.password,
+      username: this.username
+    };
   }
 }
