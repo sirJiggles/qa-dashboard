@@ -1,0 +1,5 @@
+{{#if @task.last.isError}}
+  <div local-class="error">
+    {{t @task.last.error.error}}
+  </div>
+{{/if}}

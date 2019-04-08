@@ -28,11 +28,8 @@
           @value={{this.password}}
         />
 
-        {{#if @register.last.isError}}
-          <div local-class="error">
-            {{t @register.last.error.error}}
-          </div>
-        {{/if}}
+        {{!-- If we should show an error message and the task to attach to it --}}
+        <ErrorMessage @task={{@register}} />
 
         <Form.submit-button
           @raised={{true}}

@@ -16,8 +16,8 @@ export default class ApiService extends Service.extend() {
     try {
       const options = {
         ...this.defaultOptions,
-        method: 'POST',
-        user: JSON.stringify(userData)
+        body: JSON.stringify(userData),
+        method: 'POST'
       };
       const response = await fetch(`${this.endPoint}/signup`, options);
       return await this.returnBody(response);
@@ -30,8 +30,8 @@ export default class ApiService extends Service.extend() {
     try {
       const options = {
         ...this.defaultOptions,
-        method: 'POST',
-        user: JSON.stringify(userData)
+        body: JSON.stringify(userData),
+        method: 'POST'
       };
       const response = await fetch(`${this.endPoint}/signin`, options);
       return await this.returnBody(response);

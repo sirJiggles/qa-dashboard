@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { computed, action } from '@ember/object';
+import { computed } from '@ember/object';
 import { task } from 'ember-concurrency';
 
 export default class LoginForm extends Component {
@@ -23,14 +23,5 @@ export default class LoginForm extends Component {
       password: this.password,
       username: this.username
     };
-  }
-
-  @action
-  async submit() {
-    try {
-      await this.args.register.perform(this.credentials);
-    } catch (err) {
-      throw err;
-    }
   }
 }
