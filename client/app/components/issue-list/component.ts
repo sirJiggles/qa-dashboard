@@ -13,7 +13,6 @@ export default class IssueListComponent extends Component {
 
   @action
   async getUser() {
-    const user = await this.api.getUser();
-    console.error('got the user baby: ', user);
+    await this.api.getUser();
   }
 }
