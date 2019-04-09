@@ -11,10 +11,7 @@ export default class LoginRoute extends Route.extend(titleSetter, {
 
   login: task(function*(credentials: UserCredentials) {
     try {
-      const res = yield this.session.authenticate(
-        'authenticator:jwt',
-        credentials
-      );
+      yield this.session.authenticate('authenticator:jwt', credentials);
 
       // if we are logged in lets now go to the dashboard
       this.transitionTo(AppRoute.dashboard);
