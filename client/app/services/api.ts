@@ -1,21 +1,19 @@
 import Service from '@ember/service';
 import UserCredentials from 'client/interfaces/user-credentials';
+import { inject as service } from '@ember/service';
+import { session } from 'ember-simple-auth-token';
 
 export default class ApiService extends Service.extend() {
   endPoint = 'http://localhost:3000';
 
-  defaultOptions = {
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    method: 'GET'
-  };
+  @service
+  session!: session;
 
   // This can all be cleaned up later to add more complication for now it ok to duplicate
   async register(userData: UserCredentials) {
     try {
       const options = {
-        ...this.defaultOptions,
+        ...this.getDefaultOptions(),
         body: JSON.stringify(userData),
         method: 'POST'
       };
@@ -29,7 +27,7 @@ export default class ApiService extends Service.extend() {
   async login(userData: UserCredentials) {
     try {
       const options = {
-        ...this.defaultOptions,
+        ...this.getDefaultOptions(),
         body: JSON.stringify(userData),
         method: 'POST'
       };
@@ -40,13 +38,28 @@ export default class ApiService extends Service.extend() {
     }
   }
 
-  async testAccess() {
+  async getUser() {
     try {
-      const response = await fetch(`${this.endPoint}/test`);
+      const response = await fetch(
+        `${this.endPoint}/api/user`,
+        this.getDefaultOptions()
+      );
       return await this.returnBody(response);
     } catch (err) {
       throw err;
     }
+  }
+
+  private getDefaultOptions() {
+    const bearer = this.session.data.authenticated.token || 'not set';
+
+    return {
+      headers: {
+        authorization: `Bearer ${bearer}`,
+        'Content-Type': 'application/json'
+      },
+      method: 'GET'
+    };
   }
 
   // Used to format the body a little so we can throw nice errors

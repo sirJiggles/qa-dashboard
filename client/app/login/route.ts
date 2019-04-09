@@ -11,11 +11,10 @@ export default class LoginRoute extends Route.extend(titleSetter, {
 
   login: task(function*(credentials: UserCredentials) {
     try {
-      yield this.session.authenticate('authenticator:jwt', credentials);
-
-      // @TODO put the token into some sort of store here so we can
-      // use it in all API requests from this point forwards
-      // I think we get this from session 🤷‍
+      const res = yield this.session.authenticate(
+        'authenticator:jwt',
+        credentials
+      );
 
       // if we are logged in lets now go to the dashboard
       this.transitionTo(AppRoute.dashboard);

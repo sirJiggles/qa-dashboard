@@ -12,6 +12,7 @@ export const updateMe = async (req, res) => {
       .lean()
       .exec();
 
+    delete user.password;
     res.status(200).json({ data: user });
   } catch (e) {
     console.error(e);
