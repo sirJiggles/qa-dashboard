@@ -34,7 +34,7 @@ module.exports = function(environment) {
     // refreshAccessTokens: true, // Enables access token refreshing
     // tokenExpirationInvalidateSession: true, // Enables session invalidation on token expiration
     // serverTokenRefreshEndpoint: 'localhost:3000/signin', // Server endpoint to send refresh request
-    // refreshTokenPropertyName: 'token', // Key in server response that contains the refresh token
+    refreshTokenPropertyName: 'token', // Key in server response that contains the refresh token
     // tokenExpireName: 'exp', // Field containing token expiration
     refreshLeeway: 0 // Amount of time to send refresh request before token expiration
   };

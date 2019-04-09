@@ -83,6 +83,7 @@ export const signin = async (req, res) => {
   }
   // if they are ok return jwt
   const token = await newToken(userDoc);
+  // do not return the password obv
   delete token.password;
   return res.status(201).send({ token });
 };
