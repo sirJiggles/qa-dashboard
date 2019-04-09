@@ -112,13 +112,16 @@ export const protect = async (req, res, next) => {
   // using the token look for the user in the database
   const verifiedTokenResource = await verifyToken(token);
 
-  const user = await User.findOne(verifiedTokenResource).exec();
+  const user = await User.findById(verifiedTokenResource.id).exec();
+
   if (!user) {
     return res
       .status(404)
       .send({ error: 'errors.protected.user_mis_match' })
       .end();
   }
+  // remove the user password from each response
+  delete user.password;
 
   // add user to the req params
   req.user = user;
