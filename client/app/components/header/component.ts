@@ -5,10 +5,12 @@ import EventManager from 'client/services/event-manager';
 import IntlService from 'ember-intl/services/intl';
 import { task, timeout } from 'ember-concurrency';
 import { action } from '@ember/object';
+import User from 'client/interfaces/user';
 
 export default class HeaderComponent extends Component {
   args: {
     toggleSideBar: () => void;
+    user: User;
   } = this.args;
 
   @service
@@ -20,9 +22,6 @@ export default class HeaderComponent extends Component {
   @tracked
   title: string = this.intl.t('title');
 
-  @tracked
-  loggedOut = false;
-
   constructor() {
     super(...arguments);
 
@@ -32,25 +31,14 @@ export default class HeaderComponent extends Component {
 
     // subscribe to all calls from here on out
     this.eventManager.on('updatedTitle', this.updateTitle.bind(this));
-    this.eventManager.on('didLogin', this.didLogin.bind(this));
-    this.eventManager.on('didLogout', this.didLogout.bind(this));
   }
 
   willDestroy() {
     this.eventManager.off('updatedTitle', this.updateTitle.bind(this));
-    this.eventManager.off('didLogin', this.didLogin.bind(this));
-    this.eventManager.off('didLogout', this.didLogout.bind(this));
   }
 
   updateTitle(title: string) {
     this.title = title;
-  }
-
-  didLogin() {
-    this.loggedOut = false;
-  }
-  didLogout() {
-    this.loggedOut = true;
   }
 
   @action

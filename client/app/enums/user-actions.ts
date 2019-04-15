@@ -1,5 +1,7 @@
 enum UserAction {
-  register = 'REGISTER'
+  register = 'REGISTER',
+  login = 'LOGIN',
+  logout = 'LOGOUT'
 }
 
 export default UserAction;

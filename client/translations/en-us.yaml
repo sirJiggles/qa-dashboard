@@ -13,7 +13,7 @@ errors: {
   },
   login: {
     incorrect: password or username are incorrect,
-    not_found: 'Could not find the use, please try again',
+    not_found: 'Could not find the user, please try again',
     fields_needed: Username and Password required to login to the system
   }
 }

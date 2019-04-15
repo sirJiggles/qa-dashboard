@@ -14,12 +14,16 @@ export default class RegisterRoute extends Route.extend(titleSetter, {
 
   register: task(function*(credentials: UserCredentials) {
     try {
-      const user = yield this.api.register(credentials) as User;
+      yield this.api.register(credentials) as User;
 
       // dispatch an action
       this.redux.dispatch({
         type: UserAction.register,
-        payload: user
+        payload: {
+          user: {
+            username: credentials.username
+          }
+        }
       });
 
       this.transitionTo(AppRoute.dashboard);

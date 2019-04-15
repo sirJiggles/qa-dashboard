@@ -3,7 +3,7 @@
     <PaperButton
       @iconButton={{true}}
       @onClick={{@toggleSideBar}}
-      @disabled={{this.loggedOut}}
+      @disabled={{not @user.details}}
     >
       <PaperIcon @icon="menu" />
     </PaperButton>
@@ -11,14 +11,16 @@
       {{this.title}}
     </h2>
     <div class="flex"></div>
-    <PaperButton
-      @iconButton={{true}}
-      @onClick={{this.logout}}
-    >
-      <PaperIcon @icon="exit_to_app" />
-      <PaperTooltip @position="bottom">
-        {{t "header.logout"}}
-      </PaperTooltip>
-    </PaperButton>
+    {{#if @user.details}}
+      <PaperButton
+        @iconButton={{true}}
+        @onClick={{this.logout}}
+      >
+        <PaperIcon @icon="exit_to_app" />
+        <PaperTooltip @position="bottom">
+          {{t "header.logout"}}
+        </PaperTooltip>
+      </PaperButton>
+    {{/if}}
   </PaperToolbarTools>
 </PaperToolbar>

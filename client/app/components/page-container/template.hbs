@@ -2,9 +2,11 @@
   <SideBar @sideBarOpen={{this.sideBarOpen}} />
 
   <PaperCardContent class="flex layout-fill">
-    <Header
-      @toggleSideBar={{toggle-action "sideBarOpen" this}}
-    />
+    <UserContainer as |user|>
+      <Header
+        @user={{user}}
+        @toggleSideBar={{toggle-action "sideBarOpen" this}} />
+    </UserContainer>
     <div class="layout-fill layout-align-start-center layout-column">
       {{yield}}
     </div>
