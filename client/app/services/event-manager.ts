@@ -10,16 +10,6 @@ export default class EventManager extends Service.extend(Evented) {
     this.title = title;
     this.trigger('updatedTitle', title);
   }
-
-  didLogin() {
-    this.loggedIn = true;
-    this.trigger('didLogin');
-  }
-
-  didLogout() {
-    this.loggedIn = false;
-    this.trigger('didLogout');
-  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your services.

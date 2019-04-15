@@ -45,6 +45,5 @@ export default class HeaderComponent extends Component {
   async logout() {
     // make the call to the API*
     await timeout(500);
-    this.eventManager.didLogout();
   }
 }
