@@ -7,13 +7,6 @@ import { task, timeout } from 'ember-concurrency';
 import { action } from '@ember/object';
 
 export default class HeaderComponent extends Component {
-  //   logout: task(function*() {
-  //     console.error('we are logging out');
-
-  //     timeout(5000);
-  //     yield true;
-  //   })
-  // } {
   args: {
     toggleSideBar: () => void;
   } = this.args;
