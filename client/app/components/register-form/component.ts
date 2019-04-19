@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 import { computed } from '@ember/object';
-import { task } from 'ember-concurrency';
+import { Task } from 'ember-concurrency';
 
 export default class LoginForm extends Component {
   args: {
-    register: task;
+    register: Task<any, any>;
   } = this.args;
 
   // component state

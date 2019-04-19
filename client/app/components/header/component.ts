@@ -2,8 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import EventManager from 'client/services/event-manager';
-import IntlService from 'ember-intl/services/intl';
-import { task, timeout } from 'ember-concurrency';
+import { timeout } from 'ember-concurrency';
 import { action } from '@ember/object';
 import User from 'client/interfaces/user';
 
@@ -17,13 +16,14 @@ export default class HeaderComponent extends Component {
   eventManager!: EventManager;
 
   @service
-  intl!: IntlService;
+  intl!: any;
 
   @tracked
   title: string = this.intl.t('title');
 
-  constructor() {
-    super(...arguments);
+  constructor(owner: unknown, args: any) {
+    // tslint:disable IArguments
+    super(owner, args);
 
     // on init we also want to check the value of the title
     // for the first page we load

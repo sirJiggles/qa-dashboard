@@ -2,13 +2,13 @@ import Mixin from '@ember/object/mixin';
 import { inject as service } from '@ember/service';
 
 export default Mixin.create({
-  eventManager: service(),
-  intl: service(),
+  eventManager: service() as any,
+  intl: service() as any,
 
   beforeModel() {
-    if (!this.title) {
+    if (!(this as any).title) {
       return;
     }
-    this.eventManager.updateTitle(this.intl.t(`pages.${this.title}`));
+    this.eventManager.updateTitle(this.intl.t(`pages.${(this as any).title}`));
   }
 });

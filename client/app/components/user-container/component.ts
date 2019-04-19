@@ -1,6 +1,6 @@
 import { connect } from 'ember-redux';
 
-const stateToComputed = (state, attrs) => ({
+const stateToComputed = (state: { user?: { username: string } }) => ({
   user: state.user
 });
 

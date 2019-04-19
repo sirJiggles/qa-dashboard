@@ -1,7 +1,7 @@
-enum UserAction {
+enum UserActionName {
   register = 'REGISTER',
   login = 'LOGIN',
   logout = 'LOGOUT'
 }
 
-export default UserAction;
+export default UserActionName;

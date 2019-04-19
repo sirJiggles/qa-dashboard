@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'client',
+    modulePrefix: "client",
     environment,
-    rootURL: '/',
-    locationType: 'auto',
+    rootURL: "/",
+    locationType: "auto",
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -13,33 +13,33 @@ module.exports = function(environment) {
         EMBER_NATIVE_DECORATOR_SUPPORT: true,
         EMBER_METAL_TRACKED_PROPERTIES: true,
         EMBER_GLIMMER_ANGLE_BRACKET_NESTED_LOOKUP: true,
-        EMBER_GLIMMER_ANGLE_BRACKET_BUILT_INS: true
+        EMBER_GLIMMER_ANGLE_BRACKET_BUILT_INS: true,
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
   };
 
-  ENV['ember-simple-auth-token'] = {
-    serverTokenEndpoint: 'http://localhost:3000/signin', // Server endpoint to send authenticate request
-    tokenPropertyName: 'token', // Key in server response that contains the access token
+  ENV["ember-simple-auth-token"] = {
+    serverTokenEndpoint: "http://localhost:3000/signin", // Server endpoint to send authenticate request
+    tokenPropertyName: "token", // Key in server response that contains the access token
     // tokenDataPropertyName: 'tokenData', // Key in session to store token data
     // refreshAccessTokens: true, // Enables access token refreshing
     // tokenExpirationInvalidateSession: true, // Enables session invalidation on token expiration
     // serverTokenRefreshEndpoint: 'localhost:3000/signin', // Server endpoint to send refresh request
-    refreshTokenPropertyName: 'token', // Key in server response that contains the refresh token
+    refreshTokenPropertyName: "token", // Key in server response that contains the refresh token
     // tokenExpireName: 'exp', // Field containing token expiration
-    refreshLeeway: 0 // Amount of time to send refresh request before token expiration
+    refreshLeeway: 0, // Amount of time to send refresh request before token expiration
   };
 
-  if (environment === 'development') {
+  if (environment === "development") {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -47,19 +47,19 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
-  if (environment === 'test') {
+  if (environment === "test") {
     // Testem prefers this...
-    ENV.locationType = 'none';
+    ENV.locationType = "none";
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.rootElement = "#ember-testing";
     ENV.APP.autoboot = false;
   }
 
-  if (environment === 'production') {
+  if (environment === "production") {
   }
 
   return ENV;

@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
-import { task } from 'ember-concurrency';
+import { Task } from 'ember-concurrency';
 
 export default class ErrorMessageComponent extends Component {
   args: {
-    task: task;
+    task: Task<any, any>;
   } = this.args;
 }

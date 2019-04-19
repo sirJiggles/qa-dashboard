@@ -21,6 +21,6 @@ module('Integration | Component | page-container', function(hooks) {
       {{/page-container}}
     `);
 
-    // assert.equal(this.element.textContent.trim(), 'template block text');
+    // assert.equal(, 'template block text');
   });
 });

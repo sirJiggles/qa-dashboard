@@ -5,25 +5,25 @@ import { inject as service } from '@ember/service';
 import ApiService from 'client/services/api';
 import AppRoute from 'client/enums/app-route';
 import UserCredentials from 'client/interfaces/user-credentials';
-import UserAction from 'client/enums/user-actions';
+import UserActionName from 'client/enums/user-action-names';
 import User from 'client/interfaces/user';
 
 export default class RegisterRoute extends Route.extend(titleSetter, {
   // @TODO try to get this ban boi hooked up as a regular service later
   redux: service(),
 
-  register: task(function*(credentials: UserCredentials) {
+  register: task(function*(this: any, credentials: UserCredentials) {
     try {
       yield this.api.register(credentials) as User;
 
       // dispatch an action
       this.redux.dispatch({
-        type: UserAction.register,
         payload: {
           user: {
             username: credentials.username
           }
-        }
+        },
+        type: UserActionName.register
       });
 
       this.transitionTo(AppRoute.dashboard);

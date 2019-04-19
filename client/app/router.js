@@ -1,10 +1,10 @@
-import EmberRouter from '@ember/routing/router';
-import config from './config/environment';
-import AppRoute from './enums/app-route';
+import EmberRouter from "@ember/routing/router";
+import config from "./config/environment";
+import AppRoute from "./enums/app-route";
 
 const Router = EmberRouter.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
 });
 
 Router.map(function() {

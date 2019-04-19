@@ -21,20 +21,11 @@
     "baseUrl": ".",
     "module": "es6",
     "paths": {
-      "client/tests/*": [
-        "tests/*"
-      ],
-      "client/*": [
-        "app/*"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "client/tests/*": ["tests/*"],
+      "client/*": ["app/*"],
+      "*": ["types/*"]
     }
   },
-  "include": [
-    "app/**/*",
-    "tests/**/*",
-    "types/**/*"
-  ]
+  "include": ["app/**/*", "tests/**/*", "types/**/*"],
+  "exclude": ["node_modules/**/*"]
 }

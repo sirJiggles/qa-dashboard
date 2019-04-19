@@ -12,7 +12,7 @@ module('Integration | Component | login-form', function(hooks) {
 
     await render(hbs`{{login-form}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal('', '');
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module('Integration | Component | login-form', function(hooks) {
       {{/login-form}}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal('', '');
   });
 });

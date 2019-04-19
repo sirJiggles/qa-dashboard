@@ -12,7 +12,7 @@ module('Integration | Component | error-message', function(hooks) {
 
     await render(hbs`{{error-message}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal('', '');
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module('Integration | Component | error-message', function(hooks) {
       {{/error-message}}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal('', '');
   });
 });

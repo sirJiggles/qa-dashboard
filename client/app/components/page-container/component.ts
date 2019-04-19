@@ -1,10 +1,9 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import IntlService from 'ember-intl/services/intl';
 
 export default class PageContainerComponent extends Component {
   @service
-  intl!: IntlService;
+  intl!: any;
 
   // by default the side bar is open
   sideBarOpen = false;

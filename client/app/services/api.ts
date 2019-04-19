@@ -1,13 +1,12 @@
 import Service from '@ember/service';
 import UserCredentials from 'client/interfaces/user-credentials';
 import { inject as service } from '@ember/service';
-import { session } from 'ember-simple-auth-token';
 
 export default class ApiService extends Service.extend() {
   endPoint = 'http://localhost:3000';
 
   @service
-  session!: session;
+  session!: any;
 
   // This can all be cleaned up later to add more complication for now it ok to duplicate
   async register(userData: UserCredentials) {
