@@ -37,6 +37,18 @@ export default class ApiService extends Service.extend() {
     }
   }
 
+  async logout() {
+    try {
+      const response = await fetch(
+        `${this.endPoint}/signout`,
+        this.getDefaultOptions()
+      );
+      return await this.returnBody(response);
+    } catch (err) {
+      throw err;
+    }
+  }
+
   async getUser() {
     try {
       const response = await fetch(

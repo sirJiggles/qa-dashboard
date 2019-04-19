@@ -14,7 +14,8 @@
     {{#if @user.details}}
       <PaperButton
         @iconButton={{true}}
-        @onClick={{this.logout}}
+        @onClick={{this.logout.perform}}
+        disabled={{this.logout.isRunning}}
       >
         <PaperIcon @icon="exit_to_app" />
         <PaperTooltip @position="bottom">

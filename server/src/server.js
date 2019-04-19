@@ -5,7 +5,7 @@ import config from './config';
 import cors from 'cors';
 import { connect } from './utils/db';
 import userRouter from './resources/user/user.router';
-import { signup, signin, protect } from './utils/auth';
+import { signup, signin, signout, protect } from './utils/auth';
 
 export const app = express();
 
@@ -30,6 +30,7 @@ app.get('/api/test', (req, res) => {
 // to login and sign up
 app.post('/signup', signup);
 app.post('/signin', signin);
+app.post('/signout', signout);
 
 export const start = async () => {
   try {
